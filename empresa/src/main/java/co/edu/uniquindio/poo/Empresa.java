@@ -1,5 +1,5 @@
 /**
- * Clase para probar el funcionamiento del código
+ * Clase para probar el funcionamiento del código de la empresa
  * @author Área de programación UQ
  * @since 2023-08
  * 
