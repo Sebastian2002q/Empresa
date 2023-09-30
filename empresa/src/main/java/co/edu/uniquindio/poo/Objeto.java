@@ -20,4 +20,38 @@ public class Objeto {
         this.estado = estado;
         this.precioAlquiler = precioAlquiler;
     }
+
+    //Getters
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public int getUnidadesDisponibles() {
+        return unidadesDisponibles;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public double getPrecioAlquiler() {
+        return precioAlquiler;
+    }
+
+    //Setters
+    public void setUnidadesDisponibles(int unidadesDisponibles) {
+        this.unidadesDisponibles = unidadesDisponibles;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public void setPrecioAlquiler(double precioAlquiler) {
+        this.precioAlquiler = precioAlquiler;
+    }
 }

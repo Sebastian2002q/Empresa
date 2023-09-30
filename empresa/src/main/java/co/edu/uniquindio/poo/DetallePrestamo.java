@@ -14,4 +14,20 @@ public class DetallePrestamo {
         this.subTotal = subTotal;
         this.objeto = objeto;
     }
+
+    //Getters
+    public int getUnidadesPrestadas() {
+        return unidadesPrestadas;
+    }
+
+    public double getSubTotal() {
+        return subTotal;
+    }
+
+    public Objeto getObjeto() {
+        return objeto;
+    }
+
+    
+
 }

@@ -20,4 +20,31 @@ public class Cliente {
         this.ciudadResidencia = ciudadResidencia;
         this.tipoDocumento = tipoDocumento;
     }
+
+    //Getters
+    public String getDocumento() {
+        return documento;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public String getCiudadResidencia() {
+        return ciudadResidencia;
+    }
+
+    public TipoDocumento getTipoDocumento() {
+        return tipoDocumento;
+    }
+
+    //Setters
+    public void setCiudadResidencia(String ciudadResidencia) {
+        this.ciudadResidencia = ciudadResidencia;
+    }
+
 }

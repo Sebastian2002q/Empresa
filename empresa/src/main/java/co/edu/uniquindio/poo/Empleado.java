@@ -16,5 +16,22 @@ public class Empleado {
         this.codigo = codigo;
         this.correo = correo;
         this.aniosExperiancia = aniosExperiencia;
+    }
+
+    //Getters
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public String getAniosExperiancia() {
+        return aniosExperiancia;
     }    
 }

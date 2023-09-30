@@ -1,5 +1,5 @@
 /**
- * Clase para probar el funcionamiento del código de la empresa
+ * Clase empresa;
  * @author Área de programación UQ
  * @since 2023-08
  * 
@@ -31,7 +31,35 @@ public class Empresa{
         this.objetos = new LinkedList<>();
     }
 
+    //Getters
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getNit() {
+        return nit;
+    }
+
+    public Collection<Empleado> getEmpleados(){
+        return Collections.unmodifiableCollection(empleados);
+    }
+
+    public Collection<Cliente> getClientes() {
+        return Collections.unmodifiableCollection(clientes);
+    }
+
+    public Collection<Prestamo> getPrestamos() {
+        return Collections.unmodifiableCollection(prestamos);
+    }
+
+    public Collection<Objeto> getObjetos() {
+        return Collections.unmodifiableCollection(objetos);
+    }
     
+    
+
+    
+
 
 
 }
