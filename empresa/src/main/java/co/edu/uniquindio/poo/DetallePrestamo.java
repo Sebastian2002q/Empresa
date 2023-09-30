@@ -13,6 +13,7 @@ public class DetallePrestamo {
         this.unidadesPrestadas = unidadesPrestadas;
         this.subTotal = subTotal;
         this.objeto = objeto;
+        objeto.modificarUnidades(unidadesPrestadas);
     }
 
     //Getters
@@ -28,6 +29,6 @@ public class DetallePrestamo {
         return objeto;
     }
 
-    
+
 
 }

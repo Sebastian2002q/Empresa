@@ -42,16 +42,17 @@ public class Objeto {
         return precioAlquiler;
     }
 
-    //Setters
-    public void setUnidadesDisponibles(int unidadesDisponibles) {
-        this.unidadesDisponibles = unidadesDisponibles;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
-    public void setPrecioAlquiler(double precioAlquiler) {
-        this.precioAlquiler = precioAlquiler;
+    /**
+     * Permite modificar las unidades disponibles de un objeto
+     * @param unidadesNew
+     */
+    public void modificarUnidades(int unidadesNew){
+        this.unidadesDisponibles = getUnidadesDisponibles() + unidadesNew;
+        if (getUnidadesDisponibles()>0){
+            this.estado = "Disponible";
+        }
+        if (getUnidadesDisponibles()==0){
+            this.estado = "No disponible";
+        }
     }
 }
