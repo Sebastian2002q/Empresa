@@ -9,6 +9,15 @@ public class Cliente {
     
     //Constructor
     public Cliente(String documento, String nombre, String genero, String ciudadResidencia, TipoDocumento tipoDocumento){
-
+        assert documento != null;
+        assert nombre != null;
+        assert genero != null;
+        assert ciudadResidencia != null;
+        assert tipoDocumento != null;
+        this.documento = documento;
+        this.nombre = nombre;
+        this.genero = genero;
+        this.ciudadResidencia = ciudadResidencia;
+        this.tipoDocumento = tipoDocumento;
     }
 }

@@ -8,6 +8,13 @@ public class Empleado {
     
     //Constructor 
     public Empleado(String nombre, String codigo, String correo, String aniosExperiencia){
-
+        assert nombre != null;
+        assert codigo != null;
+        assert correo != null;
+        assert aniosExperiencia != null;
+        this.nombre = nombre;
+        this.codigo = codigo;
+        this.correo = correo;
+        this.aniosExperiancia = aniosExperiencia;
     }    
 }

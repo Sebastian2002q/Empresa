@@ -9,6 +9,15 @@ public class Objeto {
     
     //Constructor
     public Objeto(String nombre, String codigo, int unidadesDisponibles, String estado, double precioAlquiler){
-
+        assert nombre != null;
+        assert codigo != null;
+        assert unidadesDisponibles >= 0;
+        assert estado != null;
+        assert precioAlquiler >= 0;
+        this.nombre = nombre;
+        this.codigo = codigo;
+        this.unidadesDisponibles = unidadesDisponibles;
+        this.estado = estado;
+        this.precioAlquiler = precioAlquiler;
     }
 }

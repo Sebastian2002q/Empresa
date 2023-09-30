@@ -7,6 +7,11 @@ public class DetallePrestamo {
     
     //Constructor 
     public DetallePrestamo(int unidadesPrestadas, double subTotal, Objeto objeto){
-
+        assert unidadesPrestadas >= 0;
+        assert subTotal >= 0;
+        assert objeto != null;
+        this.unidadesPrestadas = unidadesPrestadas;
+        this.subTotal = subTotal;
+        this.objeto = objeto;
     }
 }
