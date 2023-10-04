@@ -11,5 +11,5 @@ public enum TipoDocumento {
         return num;
     }
     
-    private int num;
+    private Integer num;
 }

@@ -41,7 +41,7 @@ public class Empresa{
     public String getNit() {
         return nit;
     }
-
+    
     public Collection<Empleado> getEmpleados(){
         return Collections.unmodifiableCollection(empleados);
     }
@@ -64,17 +64,28 @@ public class Empresa{
      * @throws Se genera si el cliente ya se encuentra registrado
     */
     public void registrarCliente(Cliente cliente){
-        validarClienteExiste(cliente);
+        assert !validarClienteExiste(cliente): "El cliente ya esta registrado";
         clientes.add(cliente);
+    }
+
+    /**
+     * Permite eliminar un cliente de la listaClientes
+     * @param cliente Clientre a ser eliminado
+     * @throws Se genera si elo cliente no se encuentra registrado
+     */
+    public void eliminarCliente(Cliente cliente){
+        assert validarClienteExiste(cliente): "El cliente no esta registrado";
+        clientes.remove(cliente);
     }
 
     /**
      * Valida si el cliente ya se encuentra registrado 
      * @param cliente
+     * @return
      */
-    private void validarClienteExiste(Cliente cliente) {
-        boolean existeEquipo = buscarClientePorDocumento(cliente.getDocumento()).isPresent();
-        assert !existeEquipo: "El cliente ya esta registrado";
+    private boolean validarClienteExiste(Cliente cliente) {
+        boolean existeCliente = buscarClientePorDocumento(cliente.getDocumento()).isPresent();
+        return existeCliente;
     }
 
     /**
@@ -93,17 +104,28 @@ public class Empresa{
      * @throws Se genera si el empleado ya se encuentra registrado
     */
     public void registrarEmpleado(Empleado empleado){
-        validarEmpleadoExiste(empleado);
+        assert !validarEmpleadoExiste(empleado): "El empleado ya esta registrado";
         empleados.add(empleado);
+    }
+
+    /**
+     * Permite eliminar un empleado de la listaEmpleados
+     * @param empleado Empleado a ser eliminado
+     * @throws Se genera si el empleado no se encuentra registrado
+     */
+    public void eliminarEmpleado(Empleado empleado){
+        assert validarEmpleadoExiste(empleado): "El empleado no esta registrado";
+        empleados.remove(empleado);
     }
 
     /**
      * Valida si el empleado ya se encuentra registrado 
      * @param empleado
+     * @return
      */
-    private void validarEmpleadoExiste(Empleado empleado) {
-        boolean existeEquipo = buscarEmpleadoPorCodigo(empleado.getCodigo()).isPresent();
-        assert !existeEquipo: "El empleado ya esta registrado";
+    private boolean validarEmpleadoExiste(Empleado empleado) {
+        boolean existeEmpleado = buscarEmpleadoPorCodigo(empleado.getCodigo()).isPresent();
+        return existeEmpleado;
     }
     
     /**
@@ -122,17 +144,28 @@ public class Empresa{
      * @throws Se genera si el prestamo ya se encuentra registrado
     */
     public void registrarPrestamo(Prestamo prestamo){
-        validarPrestamoExiste(prestamo);
+        assert !validarPrestamoExiste(prestamo): "El prestamo ya esta registrado";
         prestamos.add(prestamo);
     }
 
     /**
+     * Permite eliminar un prestamo a la listaPrestamos
+     * @param prestamo Prestamo a ser eliminado
+     * @throws Se genera si el prestamo no esta registrado
+     */
+    public void eliminarPrestamo(Prestamo prestamo){
+        assert validarPrestamoExiste(prestamo): "El prestamo no esta registrado";
+        prestamos.remove(prestamo);
+    }
+    
+    /**
      * Valida si el prestamo ya se encuentra registrado 
      * @param prestamo
+     * @return
      */
-    private void validarPrestamoExiste(Prestamo prestamo) {
-        boolean existeEquipo = buscarPrestamoPorCodigo(prestamo.getCodigo()).isPresent();
-        assert !existeEquipo: "El prestamo ya esta registrado";
+    private boolean validarPrestamoExiste(Prestamo prestamo) {
+        boolean existePrestamo = buscarPrestamoPorCodigo(prestamo.getCodigo()).isPresent();
+        return existePrestamo;
     }
     
     /**
@@ -151,17 +184,27 @@ public class Empresa{
      * @throws Se genera si el objeto ya se encuentra registrado
     */
     public void registrarObjeto(Objeto objeto){
-        validarObjetoExiste(objeto);
+        assert validarObjetoExiste(objeto): "El objeto ya esta registrado, unicamente modifique las unidades disponibles";
         objetos.add(objeto);
     }
 
     /**
-     * Valida si el ojeto ya se encuentra registrado 
+     * Permite eliminar un objeto de la listaObjetos
      * @param objeto
      */
-    private void validarObjetoExiste(Objeto objeto) {
-        boolean existeEquipo = buscarObjetoPorCodigo(objeto.getCodigo()).isPresent();
-        assert !existeEquipo: "El objeto ya esta registrado, unicamente modifique las unidades disponibles";
+    public void eliminarObjeto(Objeto objeto){
+        assert validarObjetoExiste(objeto): "El objeto no esta registrado";
+        objetos.remove(objeto);
+    }
+
+    /**
+     * Valida si el ojeto ya se encuentra registrado 
+     * @param objeto 
+     * @return
+     */
+    private boolean validarObjetoExiste(Objeto objeto) {
+        boolean existeObjeto = buscarObjetoPorCodigo(objeto.getCodigo()).isPresent();
+        return existeObjeto;
     }
     
     /**

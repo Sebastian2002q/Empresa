@@ -57,4 +57,13 @@ public class Prestamo {
     public Collection<DetallePrestamo> getDetallePrestamos() {
         return Collections.unmodifiableCollection(detallePrestamos);
     }
+
+    /** 
+     * Permite registrar un detallePrestamo a la listaDetallePrestamos 
+     * @param detallePrestamo detallePrestamo a ser registrado
+    */
+    public void registrarDetallePrestamo(DetallePrestamo detallePrestamo){    
+        detallePrestamos.add(detallePrestamo);
+    }
+
 }
