@@ -155,9 +155,10 @@ public class Empresa{
      */
     public void eliminarPrestamo(Prestamo prestamo){
         assert validarPrestamoExiste(prestamo): "El prestamo no esta registrado";
+        prestamo.devolucionPrestamo();
         prestamos.remove(prestamo);
     }
-    
+
     /**
      * Valida si el prestamo ya se encuentra registrado 
      * @param prestamo
@@ -215,5 +216,30 @@ public class Empresa{
     public Optional<Objeto> buscarObjetoPorCodigo(String codigo){
         Predicate<Objeto> condicion = objeto->objeto.getCodigo().equals(codigo);
         return objetos.stream().filter(condicion).findAny();
+    }
+
+    /**
+     * Permite filtrar la listaObjetos con un valor indicado
+     * @param dinero Filtro
+     * @return Una lista con los objetos cuyo valor sea mayor o igual al valor indicado
+     */
+    public Collection<Objeto> filtroPorDinero(double dinero){
+        LinkedList<Objeto> lista = new LinkedList<>();
+        for(Objeto objeto : objetos){
+            if(objeto.isPrestado() == true && objeto.getPrecioAlquiler() >= dinero){
+                lista.add (objeto);
+            }
+        }
+        return lista;
+    }
+
+    /**
+     * Permite imprimir la listaPrestamos
+     * @param prestamos
+     */
+    public void imprimirListaPrestamos(LinkedList<Prestamo> prestamos){
+        for (Prestamo prestamo : prestamos){
+            System.out.println("-" + prestamo);
+        }
     }
 }

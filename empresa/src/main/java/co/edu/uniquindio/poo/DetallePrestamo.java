@@ -7,13 +7,15 @@ public class DetallePrestamo {
     
     //Constructor 
     public DetallePrestamo(int unidadesPrestadas, double subTotal, Objeto objeto){
-        assert unidadesPrestadas >= 0;
-        assert subTotal >= 0;
+        assert objeto.isEstado();
+        assert unidadesPrestadas <= objeto.getUnidadesDisponibles(): "Las unidades prestadas supera a las unidades disponibles";
+        assert unidadesPrestadas > 0: "Las unidades prestadas deben ser mayores que cero";
+        assert subTotal > 0;
         assert objeto != null;
         this.unidadesPrestadas = unidadesPrestadas;
         this.subTotal = subTotal;
         this.objeto = objeto;
-        objeto.modificarUnidades(unidadesPrestadas);
+        objeto.modificarUnidades(-unidadesPrestadas);
     }
 
     //Getters
@@ -28,7 +30,4 @@ public class DetallePrestamo {
     public Objeto getObjeto() {
         return objeto;
     }
-
-
-
 }

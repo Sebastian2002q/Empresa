@@ -4,20 +4,21 @@ public class Objeto {
     private String nombre;
     private String codigo;
     private int unidadesDisponibles;
-    private String estado;
+    private boolean estado;
+    private boolean prestado;
     private double precioAlquiler;
     
     //Constructor
-    public Objeto(String nombre, String codigo, int unidadesDisponibles, String estado, double precioAlquiler){
+    public Objeto(String nombre, String codigo, int unidadesDisponibles, double precioAlquiler){
         assert nombre != null;
         assert codigo != null;
-        assert unidadesDisponibles >= 0;
-        assert estado != null;
-        assert precioAlquiler >= 0;
+        assert unidadesDisponibles > 0;
+        assert precioAlquiler > 0;
+        this.estado = true;
+        this.prestado = false;
         this.nombre = nombre;
         this.codigo = codigo;
         this.unidadesDisponibles = unidadesDisponibles;
-        this.estado = estado;
         this.precioAlquiler = precioAlquiler;
     }
 
@@ -34,12 +35,21 @@ public class Objeto {
         return unidadesDisponibles;
     }
 
-    public String getEstado() {
+    public boolean isEstado() {
         return estado;
     }
 
     public double getPrecioAlquiler() {
         return precioAlquiler;
+    }
+
+    public boolean isPrestado(){
+        return prestado;
+    }
+
+    //Setters
+    public void setPrestado(boolean prestado) {
+        this.prestado = prestado;
     }
 
     /**
@@ -49,10 +59,10 @@ public class Objeto {
     public void modificarUnidades(int unidadesNew){
         this.unidadesDisponibles = getUnidadesDisponibles() + unidadesNew;
         if (getUnidadesDisponibles()>0){
-            this.estado = "Disponible";
+            this.estado = true;
         }
         if (getUnidadesDisponibles()==0){
-            this.estado = "No disponible";
+            this.estado = false;
         }
     }
 }

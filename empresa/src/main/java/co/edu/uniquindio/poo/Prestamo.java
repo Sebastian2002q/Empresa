@@ -1,9 +1,5 @@
 package co.edu.uniquindio.poo;
 
-import java.util.Collection;
-import java.util.LinkedList;
-import java.util.Collections;
-
 public class Prestamo {
     private String codigo;
     private int diasSolicitados;
@@ -11,22 +7,24 @@ public class Prestamo {
     private double valor;
     private Empleado empleado;
     private Cliente cliente;
-    private final Collection<DetallePrestamo> detallePrestamos;
+    private DetallePrestamo detallePrestamo;
 
     //Constructor
-    public Prestamo(String codigo, int diasSolicitados, double valor, Empleado empleado, Cliente cliente){
+    public Prestamo(String codigo, int diasSolicitados, double valor, Empleado empleado, Cliente cliente, DetallePrestamo detallePrestamo){
         assert codigo != null;
         assert diasSolicitados >= 0;
         assert valor >= 0;
         assert empleado != null;
         assert cliente != null;
+        assert detallePrestamo != null;
         this.codigo = codigo;
         this.diasSolicitados = diasSolicitados;
         this.diasTranscurridos = 0;
         this.valor = valor;
         this.empleado = empleado;
         this.cliente = cliente;
-        this.detallePrestamos = new LinkedList<>();
+        this.detallePrestamo = detallePrestamo;
+        detallePrestamo.getObjeto().setPrestado(true);
     }
 
     //Getters
@@ -54,16 +52,13 @@ public class Prestamo {
         return cliente;
     }
 
-    public Collection<DetallePrestamo> getDetallePrestamos() {
-        return Collections.unmodifiableCollection(detallePrestamos);
+    public DetallePrestamo getDetallePrestamo() {
+        return detallePrestamo;
     }
 
-    /** 
-     * Permite registrar un detallePrestamo a la listaDetallePrestamos 
-     * @param detallePrestamo detallePrestamo a ser registrado
-    */
-    public void registrarDetallePrestamo(DetallePrestamo detallePrestamo){    
-        detallePrestamos.add(detallePrestamo);
+    public void devolucionPrestamo(){
+        Objeto objeto = detallePrestamo.getObjeto();
+        objeto.modificarUnidades(detallePrestamo.getUnidadesPrestadas());
+        detallePrestamo.getObjeto().setPrestado(false);
     }
-
 }
