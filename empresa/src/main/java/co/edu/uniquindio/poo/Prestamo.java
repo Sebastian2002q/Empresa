@@ -61,4 +61,9 @@ public class Prestamo {
         objeto.modificarUnidades(detallePrestamo.getUnidadesPrestadas());
         detallePrestamo.getObjeto().setPrestado(false);
     }
+
+    @Override
+    public String toString(){
+        return "Codigo= " + codigo + " | Valor= " + valor + " | Dias Solicitados= "  + diasSolicitados + " | Empleado= " + empleado + " | Cliente= " + cliente;
+    }
 }

@@ -239,7 +239,7 @@ public class Empresa{
      */
     public void imprimirListaPrestamos(LinkedList<Prestamo> prestamos){
         for (Prestamo prestamo : prestamos){
-            System.out.println("-" + prestamo);
+            System.out.println("- " + prestamo);
         }
     }
 }
